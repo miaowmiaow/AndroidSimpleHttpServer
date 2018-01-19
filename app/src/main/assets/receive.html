@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="zh-CN">
+<head>
+    <script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
+    <script type="text/javascript">
+var num = 1;
+function addParam()
+{
+	$("#form").append('<div id="div'+num+'"></div>');
+	$("#div"+num).append('<input type="text" id="key'+num+'" placeholder="请输入key'+num+'" </input>');
+	$("#div"+num).append('<input type="text" id="value'+num+'" placeholder="请输入value'+num+'"></input>');
+	$("#div"+num).append('<input type="button" value="delete" onclick="del('+num+')"></input>');
+	$("#div"+num).append("<p></p>");
+	num++;
+}
+function addFileParam()
+{
+	$("#form").append('<div id="div'+num+'"></div>');
+	$("#div"+num).append('<input type="text" id="key'+num+'" placeholder="请输入key'+num+'" </input>');
+	$("#div"+num).append('<input type="file" id="value'+num+'"></input>');
+	$("#div"+num).append('<input type="button" value="delete" onclick="del('+num+')"></input>');
+	$("#div"+num).append("<p></p>");
+	num++;
+}
+function del(id)
+{
+	$("#div"+id).remove();
+}
+function sub()
+{
+	for(i=1;i<=num;i++)
+	{
+		$("#value"+i).attr("name", $("#key"+i).val());
+	}
+}
+</script>
+</head>
+<body>
+<form id='form' method="post" action="/receive/" enctype="multipart/form-data">
+    <input type="button" value="addParam" onclick='addParam()' /><input type="button" value="addFileParam" onclick='addFileParam()' /><button type="submit" onclick='sub()'>submit </button> <br /> <br />
+</form>
+</body>
+</html>
+
