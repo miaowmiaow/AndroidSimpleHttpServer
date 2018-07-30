@@ -1,2 +1,2 @@
-# AndroidSimpleHttpServer
-<img src="device-2018-01-19-154307.png" width=350 />
+# SimpleSocketServer
+实现wifi快传功能及微型服务器架构。
